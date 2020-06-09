@@ -32,7 +32,6 @@ function cookieRandomizer(min,max){
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-
 // https://www.tutorialrepublic.com/faq/how-to-find-the-sum-of-an-array-of-numbers-in-javascript.php
 
 function arrSum(arr){
@@ -95,15 +94,15 @@ CookieStore.prototype.renderToPage = renderToPage;
 
 // ==================== INPUT DATA ==================== //
 
-var seattleCookieStore = new CookieStore('Seattle', 23, 65, 6.3, openHoursArray, 'seattle-name', 'seattle-table');
+var seattleCookieStore = new CookieStore('Seattle', 23, 65, 6.3, openHoursArray, 'seattle-name', 'seattle-data');
 
-var tokyoCookieStore = new CookieStore('Tokyo', 3, 24, 1.2, openHoursArray, 'tokyo-name', 'tokyo-table');
+var tokyoCookieStore = new CookieStore('Tokyo', 3, 24, 1.2, openHoursArray, 'tokyo-name', 'tokyo-data');
 
-var dubaiCookieStore = new CookieStore('Dubai', 11, 38, 3.7, openHoursArray, 'dubai-name', 'dubai-table');
+var dubaiCookieStore = new CookieStore('Dubai', 11, 38, 3.7, openHoursArray, 'dubai-name', 'dubai-data');
 
-var parisCookieStore = new CookieStore('Paris', 20, 38, 2.3, openHoursArray, 'paris-name', 'paris-table');
+var parisCookieStore = new CookieStore('Paris', 20, 38, 2.3, openHoursArray, 'paris-name', 'paris-data');
 
-var limaCookieStore = new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-name', 'lima-table');
+var limaCookieStore = new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-name', 'lima-data');
 
 // ==================== INVOCATIONS ==================== //
 
