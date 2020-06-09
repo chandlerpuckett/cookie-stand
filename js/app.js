@@ -61,6 +61,9 @@ function totalCookieSales(){
 }
 
 function renderToPage(){
+
+  this.calculateAllCookieSales();
+
   var parentList = document.getElementById(this.storeDisplayId);
   var newListItem = document.createElement('p');
   newListItem.textContent = this.name;
@@ -73,6 +76,8 @@ function renderToPage(){
     hourListItem.textContent = (openHoursArray[i] + ': ' + this.hourlySalesArray[i] + ' cookies');
     hourTag.appendChild(hourListItem);
   }
+
+  this.totalCookieSales();
 }
 
 // ==================== CONSTRUCTOR ==================== //
@@ -86,6 +91,8 @@ function CookieStore (name, minNumCustomer, maxNumCustomer, averageNumCookies, o
   this.openHoursArray = openHoursArray;
   this.storeDisplayId = storeDisplayId;
   this.unorderedListId = unorderedListId;
+
+
 }
 
 CookieStore.prototype.calculateAllCookieSales = calculateAllCookieSales;
@@ -93,6 +100,8 @@ CookieStore.prototype.totalCookieSales = totalCookieSales;
 CookieStore.prototype.renderToPage = renderToPage;
 
 // ==================== INPUT DATA ==================== //
+
+// store these in an array
 
 var seattleCookieStore = new CookieStore('Seattle', 23, 65, 6.3, openHoursArray, 'seattle-name', 'seattle-data');
 
@@ -106,25 +115,18 @@ var limaCookieStore = new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-
 
 // ==================== INVOCATIONS ==================== //
 
-seattleCookieStore.calculateAllCookieSales();
+// call .renderToPage with a for loop
+
+
 seattleCookieStore.renderToPage();
-seattleCookieStore.totalCookieSales();
 
-tokyoCookieStore.calculateAllCookieSales();
 tokyoCookieStore.renderToPage();
-tokyoCookieStore.totalCookieSales();
 
-dubaiCookieStore.calculateAllCookieSales();
 dubaiCookieStore.renderToPage();
-dubaiCookieStore.totalCookieSales();
 
-parisCookieStore.calculateAllCookieSales();
 parisCookieStore.renderToPage();
-parisCookieStore.totalCookieSales();
 
-limaCookieStore.calculateAllCookieSales();
 limaCookieStore.renderToPage();
-limaCookieStore.totalCookieSales();
 
 
 

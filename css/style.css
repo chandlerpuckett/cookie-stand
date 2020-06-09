@@ -1,0 +1,15 @@
+img {
+  max-width: 200px;
+}
+
+
+table {
+  border: solid darkcyan 1px;
+  border-collapse: collapse;
+  margin: 20px;
+}
+
+th, td {
+  border: solid blanchedalmond 2px;
+  padding: 5px;
+}
