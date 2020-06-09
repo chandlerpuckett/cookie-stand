@@ -286,3 +286,4 @@ parisCookies.totalCookieSales();
 limaCookies.calculateAllCookieSales();
 limaCookies.limaRenderToPage();
 limaCookies.totalCookieSales();
+
