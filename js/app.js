@@ -19,7 +19,7 @@ console.log('howdy');
 display as unordered lists
 */
 
-// ==================== GLOBAL ==================== //
+// ==================== GLOBAL FUNCTIONS & VARIABLES ==================== //
 
 var openHoursArray = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
@@ -62,7 +62,7 @@ function totalCookieSales(){
 }
 
 function renderToPage(){
-  var parentList = document.getElementById(this.unorderedListId);
+  var parentList = document.getElementById(this.storeDisplayId);
   var newListItem = document.createElement('p');
   newListItem.textContent = this.name;
   parentList.appendChild(newListItem);
@@ -75,15 +75,17 @@ function renderToPage(){
     hourTag.appendChild(hourListItem);
   }
 }
+
 // ==================== CONSTRUCTOR ==================== //
 
-function CookieStore (name, minNumCustomer, maxNumCustomer, averageNumCookies, openHoursArray, unorderedListId) {
+function CookieStore (name, minNumCustomer, maxNumCustomer, averageNumCookies, openHoursArray, storeDisplayId, unorderedListId) {
   this.hourlySalesArray = [];
   this.name = name;
   this.minNumCustomer = minNumCustomer;
   this.maxNumCustomer = maxNumCustomer;
   this.averageNumCookies = averageNumCookies;
   this.openHoursArray = openHoursArray;
+  this.storeDisplayId = storeDisplayId;
   this.unorderedListId = unorderedListId;
 }
 
@@ -93,15 +95,15 @@ CookieStore.prototype.renderToPage = renderToPage;
 
 // ==================== INPUT DATA ==================== //
 
-var seattleCookieStore = new CookieStore('Seattle', 23, 65, 6.3, openHoursArray, 'seattle-table');
+var seattleCookieStore = new CookieStore('Seattle', 23, 65, 6.3, openHoursArray, 'seattle-name', 'seattle-table');
 
-var tokyoCookieStore = new CookieStore('Tokyo', 3, 24, 1.2, openHoursArray, 'tokyo-table');
+var tokyoCookieStore = new CookieStore('Tokyo', 3, 24, 1.2, openHoursArray, 'tokyo-name', 'tokyo-table');
 
-var dubaiCookieStore = new CookieStore('Dubai', 11, 38, 3.7, openHoursArray, 'dubai-table');
+var dubaiCookieStore = new CookieStore('Dubai', 11, 38, 3.7, openHoursArray, 'dubai-name', 'dubai-table');
 
-var parisCookieStore = new CookieStore('Paris', 20, 38, 2.3, openHoursArray, 'paris-table');
+var parisCookieStore = new CookieStore('Paris', 20, 38, 2.3, openHoursArray, 'paris-name', 'paris-table');
 
-var limaCookieStore = new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-table');
+var limaCookieStore = new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-name', 'lima-table');
 
 // ==================== INVOCATIONS ==================== //
 
