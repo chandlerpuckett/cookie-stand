@@ -24,11 +24,16 @@ display as unordered lists
 var openHoursArray = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
 
-function getRandomIntInclusive(min,max){
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+function cookieRandomizer(min,max){
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+
+// https://www.tutorialrepublic.com/faq/how-to-find-the-sum-of-an-array-of-numbers-in-javascript.php
 
 function arrSum(arr){
   return arr.reduce(function(a,b){
@@ -49,7 +54,7 @@ var seattleCookies = {
 
   calculateAllCookieSales : function(){
     for (var i = 0; i < openHoursArray.length; i++){
-      var randomizedCookieSale = getRandomIntInclusive(this.minNumCustomer,this.maxNumCustomer);
+      var randomizedCookieSale = cookieRandomizer(this.minNumCustomer,this.maxNumCustomer);
 
       var hourlyCookieSales = Math.round(randomizedCookieSale * this.averageNumCookies);
 
@@ -94,7 +99,7 @@ var tokyoCookies = {
 
   calculateAllCookieSales : function(){
     for (var i = 0; i < openHoursArray.length; i++){
-      var randomizedCookieSale = getRandomIntInclusive(this.minNumCustomer,this.maxNumCustomer);
+      var randomizedCookieSale = cookieRandomizer(this.minNumCustomer,this.maxNumCustomer);
 
       var hourlyCookieSales = Math.round(randomizedCookieSale * this.averageNumCookies);
 
@@ -139,7 +144,7 @@ var dubaiCookies = {
 
   calculateAllCookieSales : function(){
     for (var i = 0; i < openHoursArray.length; i++){
-      var randomizedCookieSale = getRandomIntInclusive(this.minNumCustomer, this.maxNumCustomer);
+      var randomizedCookieSale = cookieRandomizer(this.minNumCustomer, this.maxNumCustomer);
 
       var hourlyCookieSales = Math.round(randomizedCookieSale * this.averageNumCookies);
 
@@ -184,7 +189,7 @@ var parisCookies = {
 
   calculateAllCookieSales : function(){
     for (var i = 0; i < openHoursArray.length; i++){
-      var randomizedCookieSale = getRandomIntInclusive(this.minNumCustomer, this.maxNumCustomer);
+      var randomizedCookieSale = cookieRandomizer(this.minNumCustomer, this.maxNumCustomer);
 
       var hourlyCookieSales = Math.round(randomizedCookieSale * this.averageNumCookies);
 
@@ -229,7 +234,7 @@ var limaCookies = {
 
   calculateAllCookieSales : function(){
     for (var i = 0; i < openHoursArray.length; i++){
-      var randomizedCookieSale = getRandomIntInclusive(this.minNumCustomer, this.maxNumCustomer);
+      var randomizedCookieSale = cookieRandomizer(this.minNumCustomer, this.maxNumCustomer);
 
       var hourlyCookieSales = Math.round(randomizedCookieSale * this.averageNumCookies);
 
