@@ -68,7 +68,7 @@ var seattleCookies = {
       var hourListItem = document.createElement('li');
 
       hourListItem.textContent = (openHoursArray[i] + ': ' + this.seattleSalesArray[i] + ' cookies');
-      seattleList.appendChild(hourListItem);
+      hourTag.appendChild(hourListItem);
     }
   },
 
@@ -113,7 +113,7 @@ var tokyoCookies = {
       var hourListItem = document.createElement('li');
 
       hourListItem.textContent = (openHoursArray[i] + ': ' + this.tokyoSalesArray[i] + ' cookies');
-      tokyoList.appendChild(hourListItem);
+      hourTag.appendChild(hourListItem);
     }
   },
 
@@ -158,7 +158,7 @@ var dubaiCookies = {
       var hourListItem = document.createElement('li');
 
       hourListItem.textContent = (openHoursArray[i] + ': ' + this.dubaiSalesArray[i] + ' cookies');
-      dubaiList.appendChild(hourListItem);
+      hourTag.appendChild(hourListItem);
     }
   },
 
@@ -203,7 +203,7 @@ var parisCookies = {
       var hourListItem = document.createElement('li');
 
       hourListItem.textContent = (openHoursArray[i] + ': ' + this.parisSalesArray[i] + ' cookies');
-      parisList.appendChild(hourListItem);
+      hourTag.appendChild(hourListItem);
     }
   },
 
@@ -248,7 +248,7 @@ var limaCookies = {
       var hourListItem = document.createElement('li');
 
       hourListItem.textContent = (openHoursArray[i] + ': ' + this.limaSalesArray[i] + ' cookies');
-      limaList.appendChild(hourListItem);
+      hourTag.appendChild(hourListItem);
     }
   },
 
