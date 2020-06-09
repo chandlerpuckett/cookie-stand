@@ -21,13 +21,19 @@ display as unordered lists
 
 // ==================== GLOBAL ==================== //
 
-var openHoursArray = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','Total:'];
+var openHoursArray = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm',];
 
 
 function getRandomIntInclusive(min,max){
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function arrSum(arr){
+  return arr.reduce(function(a,b){
+    return a + b;
+  }, 0);
 }
 
 // ==================== OBJECTS ==================== //
@@ -49,7 +55,42 @@ var seattleCookies = {
 
       this.seattleSalesArray.push(hourlyCookieSales);
     }
-  }
+
+    // debugger;
+    // for (var i = 0; i < this.seattleSalesArray.length; i++){
+    //   var totalCookieSales = j++;
+    //   console.log('total cookie sales: ' + totalCookieSales);
+    //   return totalCookieSales;
+    // }
+
+  },
+
+  seattleRenderToPage : function(){
+    var seattleList = document.getElementById('seattle-table');
+    var newListItem = document.createElement('p');
+    newListItem.textContent = this.name;
+    seattleList.appendChild(newListItem);
+
+    for (var i = 0; i < openHoursArray.length; i++){
+      var hourTag = document.getElementById('seattle-table');
+      var hourListItem = document.createElement('li');
+
+      hourListItem.textContent = (openHoursArray[i] + ': ' + this.seattleSalesArray[i] + ' cookies');
+      seattleList.appendChild(hourListItem);
+    }
+  },
+
+  totalCookieSales : function(){
+    var cookieTotal = arrSum(this.seattleSalesArray);
+    // return cookieTotal;
+
+    var totalCookieList = document.getElementById('seattle-table');
+    var totalCookieListItem = document.createElement('li');
+
+    totalCookieListItem.textContent = ('Total: ' + cookieTotal + ' cookies');
+    totalCookieList.appendChild(totalCookieListItem);
+  },
+
 };
 
 // ========== TOKYO ========== //
@@ -68,6 +109,21 @@ var tokyoCookies = {
       var hourlyCookieSales = Math.round(randomizedCookieSale * this.averageNumCookies);
 
       this.tokyoSalesArray.push(hourlyCookieSales);
+    }
+  },
+
+  tokyoRenderToPage : function(){
+    var tokyoList = document.getElementById('tokyo-table');
+    var newListItem = document.createElement('p');
+    newListItem.textContent = this.name;
+    tokyoList.appendChild(newListItem);
+
+    for (var i = 0; i < openHoursArray.length; i++){
+      var hourTag = document.getElementById('tokyo-table');
+      var hourListItem = document.createElement('li');
+
+      hourListItem.textContent = (openHoursArray[i] + ': ' + this.tokyoSalesArray[i] + ' cookies');
+      tokyoList.appendChild(hourListItem);
     }
   }
 };
@@ -130,6 +186,7 @@ var limaCookies = {
       this.limaSalesArray.push(hourlyCookieSales);
     }
   }
+
 };
 
 
@@ -137,9 +194,12 @@ var limaCookies = {
 // ==================== INVOCATIONS ==================== //
 
 seattleCookies.calculateAllCookieSales();
+seattleCookies.seattleRenderToPage();
+seattleCookies.totalCookieSales();
 console.log('seattle hourly sales array: ' + seattleCookies.seattleSalesArray);
 
 tokyoCookies.calculateAllCookieSales();
+tokyoCookies.tokyoRenderToPage();
 console.log('tokyo hourly sales array: ' + tokyoCookies.tokyoSalesArray);
 
 dubaiCookies.calculateAllCookieSales();
