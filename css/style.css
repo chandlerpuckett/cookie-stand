@@ -4,12 +4,12 @@ img {
 
 
 table {
-  border: solid darkcyan 1px;
+  border: solid 1px;
   border-collapse: collapse;
-  margin: 20px;
+  margin: 10px;
 }
 
-th, td {
-  border: solid blanchedalmond 2px;
+th, td, tr {
+  border: solid lightsalmon 2px;
   padding: 5px;
 }
