@@ -91,6 +91,16 @@ function renderHeadFootTable(){
   dailyTotal.textContent = ('Daily Location Total');
   head.appendChild(dailyTotal);
 
+  var footer = document.createElement('tfoot');
+  var footerRow = document.createElement('tr');
+  var footerCell = document.createElement('td');
+  footerCell.textContent = ('Totals: ');
+
+
+  table.appendChild(footer);
+  footer.appendChild(footerRow);
+  footerRow.appendChild(footerCell);
+
 }
 
 
@@ -115,8 +125,6 @@ function renderStoreToTable(){
   tableRow.appendChild(locationTotal);
 
 }
-
-
 
 // ==================== CONSTRUCTOR ==================== //
 
