@@ -23,7 +23,6 @@ display as unordered lists
 
 var openHoursArray = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
-
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
 function cookieRandomizer(min,max){
@@ -53,11 +52,8 @@ function calculateAllCookieSales(){
 function totalCookieSales(){
   var cookieTotal = arrSum(this.hourlySalesArray);
 
-  var totalCookieList = document.getElementById(this.unorderedListId);
-  var totalCookieListItem = document.createElement('li');
-
-  totalCookieListItem.textContent = ('Total: ' + cookieTotal + ' cookies');
-  totalCookieList.appendChild(totalCookieListItem);
+  console.log('total Cookie Sales: ' + cookieTotal);
+  this.totalSalesArray.push(cookieTotal);
 }
 
 function renderToPage(){
@@ -98,7 +94,7 @@ function renderHeadFootTable(){
 }
 
 
-function renderToTable(){
+function renderStoreToTable(){
   var table = document.getElementById('master-table');
   var tableRow = document.createElement('tr');
   var tableCell = document.createElement('td');
@@ -113,6 +109,11 @@ function renderToTable(){
     tableRow.appendChild(tableCell);
     table.appendChild(tableRow);
   }
+
+  var locationTotal = document.createElement('td');
+  locationTotal.textContent = this.totalSalesArray[0];
+  tableRow.appendChild(locationTotal);
+
 }
 
 
@@ -121,6 +122,7 @@ function renderToTable(){
 
 function CookieStore (name, minNumCustomer, maxNumCustomer, averageNumCookies, openHoursArray, storeDisplayId, unorderedListId) {
   this.hourlySalesArray = [];
+  this.totalSalesArray = [];
   this.name = name;
   this.minNumCustomer = minNumCustomer;
   this.maxNumCustomer = maxNumCustomer;
@@ -128,14 +130,12 @@ function CookieStore (name, minNumCustomer, maxNumCustomer, averageNumCookies, o
   this.openHoursArray = openHoursArray;
   this.storeDisplayId = storeDisplayId;
   this.unorderedListId = unorderedListId;
-
-
 }
 
 CookieStore.prototype.calculateAllCookieSales = calculateAllCookieSales;
 CookieStore.prototype.totalCookieSales = totalCookieSales;
 CookieStore.prototype.renderToPage = renderToPage;
-CookieStore.prototype.renderToTable = renderToTable;
+CookieStore.prototype.renderStoreToTable = renderStoreToTable;
 
 // ==================== INPUT DATA ==================== //
 
@@ -158,19 +158,19 @@ var limaCookieStore = new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-
 renderHeadFootTable();
 
 seattleCookieStore.renderToPage();
-seattleCookieStore.renderToTable();
+seattleCookieStore.renderStoreToTable();
 
 tokyoCookieStore.renderToPage();
-tokyoCookieStore.renderToTable();
+tokyoCookieStore.renderStoreToTable();
 
 dubaiCookieStore.renderToPage();
-dubaiCookieStore.renderToTable();
+dubaiCookieStore.renderStoreToTable();
 
 parisCookieStore.renderToPage();
-parisCookieStore.renderToTable();
+parisCookieStore.renderStoreToTable();
 
 limaCookieStore.renderToPage();
-limaCookieStore.renderToTable();
+limaCookieStore.renderStoreToTable();
 
 
 
