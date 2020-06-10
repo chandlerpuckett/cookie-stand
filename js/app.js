@@ -19,9 +19,11 @@ console.log('howdy');
 display as unordered lists
 */
 
-// ==================== GLOBAL FUNCTIONS & VARIABLES ==================== //
+// ==================== GLOBAL FUNCTIONS / VARIABLES / ARRAYS ==================== //
 
 var openHoursArray = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
+
+var columnTotals = [];
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
@@ -66,6 +68,16 @@ function renderToPage(){
 
 }
 
+
+function masterHourlyTotalSum(){
+  for (var i = 0; i < openHoursArray.length; i++){
+    var masterHourlyTotal = (seattleCookieStore.hourlySalesArray[i] + tokyoCookieStore.hourlySalesArray[i] + dubaiCookieStore.hourlySalesArray[i] + parisCookieStore.hourlySalesArray[i] + limaCookieStore.hourlySalesArray[i]);
+
+    columnTotals.push(masterHourlyTotal);
+  }
+}
+
+
 // ==================== TABLE RENDERS ==================== //
 
 function renderHeadFootTable(){
@@ -86,12 +98,17 @@ function renderHeadFootTable(){
   var footer = document.createElement('tfoot');
   var footerRow = document.createElement('tr');
   var footerCell = document.createElement('td');
-  footerCell.textContent = ('Totals: ');
+  footerCell.textContent = ('Total Hourly Sales: ');
 
   table.appendChild(footer);
   footer.appendChild(footerRow);
   footerRow.appendChild(footerCell);
 
+  for (var j = 0; j < openHoursArray.length; j++){
+    var footerHourlyTotalCell = document.createElement('td');
+    footerHourlyTotalCell.textContent = columnTotals[j];
+    footerRow.appendChild(footerHourlyTotalCell);
+  }
 }
 
 
@@ -154,8 +171,6 @@ var limaCookieStore = new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-
 
 // call .renderToPage with a for loop
 
-renderHeadFootTable();
-
 seattleCookieStore.renderToPage();
 seattleCookieStore.renderStoreToTable();
 
@@ -171,6 +186,5 @@ parisCookieStore.renderStoreToTable();
 limaCookieStore.renderToPage();
 limaCookieStore.renderStoreToTable();
 
-
-
-
+masterHourlyTotalSum();
+renderHeadFootTable();
