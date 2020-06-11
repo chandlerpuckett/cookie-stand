@@ -24,6 +24,7 @@ display as unordered lists
 var openHoursArray = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
 var columnTotals = [];
+var allBranches = [];
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
@@ -54,9 +55,8 @@ function calculateAllCookieSales(){
 
 
 function totalCookieSales(){
-  var cookieTotal = arrSum(this.hourlySalesArray);
 
-  console.log('total Cookie Sales: ' + cookieTotal);
+  var cookieTotal = arrSum(this.hourlySalesArray);
   this.totalSalesArray.push(cookieTotal);
 }
 
@@ -65,15 +65,24 @@ function renderToPage(){
 
   this.calculateAllCookieSales();
   this.totalCookieSales();
-
 }
 
 
 function masterHourlyTotalSum(){
   for (var i = 0; i < openHoursArray.length; i++){
-    var masterHourlyTotal = (seattleCookieStore.hourlySalesArray[i] + tokyoCookieStore.hourlySalesArray[i] + dubaiCookieStore.hourlySalesArray[i] + parisCookieStore.hourlySalesArray[i] + limaCookieStore.hourlySalesArray[i]);
+    var hourlyCookieSales = 0;
+    for (var j = 0; j < allBranches.length; j++){
+      hourlyCookieSales += allBranches[j].hourlySalesArray[i];
+    }
 
-    columnTotals.push(masterHourlyTotal);
+    columnTotals.push(hourlyCookieSales);
+  }
+}
+
+function init(){
+  for (var i = 0; i < allBranches.length; i++){
+    allBranches[i].renderToPage();
+    allBranches[i].renderStoreToTable();
   }
 }
 
@@ -146,6 +155,8 @@ function CookieStore (name, minNumCustomer, maxNumCustomer, averageNumCookies, o
   this.openHoursArray = openHoursArray;
   this.storeDisplayId = storeDisplayId;
   this.unorderedListId = unorderedListId;
+
+  allBranches.push(this);
 }
 
 CookieStore.prototype.calculateAllCookieSales = calculateAllCookieSales;
@@ -155,7 +166,6 @@ CookieStore.prototype.renderStoreToTable = renderStoreToTable;
 
 // ==================== INPUT DATA ==================== //
 
-// store these in an array
 
 var seattleCookieStore = new CookieStore('Seattle', 23, 65, 6.3, openHoursArray, 'seattle-name', 'seattle-data');
 
@@ -169,22 +179,7 @@ var limaCookieStore = new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-
 
 // ==================== INVOCATIONS ==================== //
 
-// call .renderToPage with a for loop
-
-seattleCookieStore.renderToPage();
-seattleCookieStore.renderStoreToTable();
-
-tokyoCookieStore.renderToPage();
-tokyoCookieStore.renderStoreToTable();
-
-dubaiCookieStore.renderToPage();
-dubaiCookieStore.renderStoreToTable();
-
-parisCookieStore.renderToPage();
-parisCookieStore.renderStoreToTable();
-
-limaCookieStore.renderToPage();
-limaCookieStore.renderStoreToTable();
+init();
 
 masterHourlyTotalSum();
 renderHeadFootTable();

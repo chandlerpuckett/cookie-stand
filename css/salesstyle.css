@@ -1,7 +1,12 @@
-img {
-  max-width: 200px;
+* {
+  box-sizing: border-box;
+  background-color: #fff5ee;
+  outline: dotted red 1px;
 }
 
+img {
+  max-width: 100%;
+}
 
 table {
   border: solid 1px;
@@ -13,3 +18,5 @@ th, td, tr {
   border: solid lightsalmon 2px;
   padding: 5px;
 }
+
+
