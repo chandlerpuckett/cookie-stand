@@ -87,12 +87,6 @@ function init(){
   }
 }
 
-function totalAllSales(){
-  var salesTotal = arrSum(columnTotals);
-  return(salesTotal);
-}
-
-
 // ==================== TABLE RENDERS ==================== //
 
 function renderHeadFootTable(){
