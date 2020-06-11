@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  background-color: #fdfaf7;
+  /* outline: dotted red 1px; */
+  font-family: Quicksand;
+}
+
+/* ========= MAIN ========== */
+
+main {
+  width: 750px;
+  margin: auto;
+  margin-top: 75px;
+}
+
+main > p {
+  margin-left: -45px;
+  font-family: Quicksand;
+  font-size: 135px;
+}
+
+p::first-letter{
+  font-weight: 900;
+  font-size: 200px;
+}
+
+main > p:nth-child(2) {
+  margin-left: 315px;
+  margin-top: -30px;
+  font-weight: 800;
+}
+
+/* ========= DIV BOXES ========== */
+
+div ul {
+  text-align: right;
+  padding-top: 125px;
+  padding-right: 350px;
+  background-color: hsla(38, 100%, 95%, 0%);
+
+}
+div ul li {
+  background-color: hsla(38, 100%, 95%, 0%);
+  
+}
+
+div ul li a {
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: hsla(38, 100%, 95%, 0%);
+  color: #7ED1C1;
+}
+
+
+#box1 {
+  background-color: hsla(350, 93%, 95%,40%);
+  width: 600px;
+  height: 600px;
+  position: static;
+  margin-top: -600px;
+  margin-left: 10px;
+  box-shadow: (5px,5px,1px);
+}
+
+#box2 {
+  background-color: hsla(38, 100%, 95%);
+  width: 800px;
+  height: 800px;
+  position: static;
+  margin-top: -290px;
+  margin-left: 400px;
+
+}
+
+#logo {
+  margin-top: 0px;
+  margin-left: -225px;
+  background-color: rgba(0,0,0,0%);
+  position: static;
+  height: 105%;
+  width: 105%; 
+}
+
