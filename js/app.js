@@ -85,6 +85,9 @@ function init(){
     allBranches[i].renderToPage();
     allBranches[i].renderStoreToTable();
   }
+
+  masterHourlyTotalSum();
+  renderHeadFootTable();
 }
 
 // ==================== TABLE RENDERS ==================== //
@@ -190,6 +193,3 @@ new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-name', 'lima-data');
 // ==================== INVOCATIONS ==================== //
 
 init();
-
-masterHourlyTotalSum();
-renderHeadFootTable();
