@@ -77,6 +77,7 @@ function masterHourlyTotalSum(){
 
     columnTotals.push(hourlyCookieSales);
   }
+
 }
 
 function init(){
@@ -84,6 +85,11 @@ function init(){
     allBranches[i].renderToPage();
     allBranches[i].renderStoreToTable();
   }
+}
+
+function totalAllSales(){
+  var salesTotal = arrSum(columnTotals);
+  return(salesTotal);
 }
 
 
@@ -118,6 +124,16 @@ function renderHeadFootTable(){
     footerHourlyTotalCell.textContent = columnTotals[j];
     footerRow.appendChild(footerHourlyTotalCell);
   }
+
+  function totalAllSales(){
+    var salesTotal = arrSum(columnTotals);
+    var salesTotalCell = document.createElement('td');
+    salesTotalCell.textContent = salesTotal;
+    footerRow.appendChild(salesTotalCell);
+  }
+
+  totalAllSales();
+
 }
 
 
@@ -167,15 +183,15 @@ CookieStore.prototype.renderStoreToTable = renderStoreToTable;
 // ==================== INPUT DATA ==================== //
 
 
-var seattleCookieStore = new CookieStore('Seattle', 23, 65, 6.3, openHoursArray, 'seattle-name', 'seattle-data');
+new CookieStore('Seattle', 23, 65, 6.3, openHoursArray, 'seattle-name', 'seattle-data');
 
-var tokyoCookieStore = new CookieStore('Tokyo', 3, 24, 1.2, openHoursArray, 'tokyo-name', 'tokyo-data');
+new CookieStore('Tokyo', 3, 24, 1.2, openHoursArray, 'tokyo-name', 'tokyo-data');
 
-var dubaiCookieStore = new CookieStore('Dubai', 11, 38, 3.7, openHoursArray, 'dubai-name', 'dubai-data');
+new CookieStore('Dubai', 11, 38, 3.7, openHoursArray, 'dubai-name', 'dubai-data');
 
-var parisCookieStore = new CookieStore('Paris', 20, 38, 2.3, openHoursArray, 'paris-name', 'paris-data');
+new CookieStore('Paris', 20, 38, 2.3, openHoursArray, 'paris-name', 'paris-data');
 
-var limaCookieStore = new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-name', 'lima-data');
+new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-name', 'lima-data');
 
 // ==================== INVOCATIONS ==================== //
 
