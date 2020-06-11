@@ -19,7 +19,7 @@ main > p {
   font-size: 135px;
 }
 
-p::first-letter{
+main p::first-letter{
   font-weight: 900;
   font-size: 200px;
 }
@@ -35,7 +35,7 @@ main > p:nth-child(2) {
 div ul {
   text-align: right;
   padding-top: 125px;
-  padding-right: 350px;
+  padding-right: 315px;
   background-color: hsla(38, 100%, 95%, 0%);
 
 }
@@ -52,33 +52,85 @@ div ul li a {
   color: #7ED1C1;
 }
 
+/* ========= BOX 1 ========== */
+
 
 #box1 {
   background-color: hsla(350, 93%, 95%,40%);
   width: 600px;
   height: 600px;
   position: static;
-  margin-top: -600px;
-  margin-left: 10px;
+  margin-top: -640px;
+  margin-left: 15px;
   box-shadow: (5px,5px,1px);
 }
+
+/* ========= BOX 2 ========== */
 
 #box2 {
   background-color: hsla(38, 100%, 95%);
   width: 800px;
   height: 800px;
   position: static;
-  margin-top: -290px;
+  margin-top: -285px;
   margin-left: 400px;
 
 }
 
 #logo {
   margin-top: 0px;
-  margin-left: -225px;
+  margin-left: -215px;
   background-color: rgba(0,0,0,0%);
   position: static;
-  height: 105%;
-  width: 105%; 
+  height: 110%;
+  width: 110%; 
 }
+
+/* ========= BOX 3 ========== */
+
+#box3 {
+  width: 400px;
+  height: 400px;
+  margin-top: -100px;
+  margin-left: -275px;
+}
+
+#box3 img {
+  width: 75%;
+  height: auto;
+}
+
+#box3 > p {
+  overflow: auto;
+}
+
+
+/* ========= BOX 4 ========== */
+
+#box4 {
+  width: 400px;
+  height: 400px;
+  margin-top: -400px;
+  margin-left: 170px;
+}
+
+#box4 > p {
+  overflow: auto;
+}
+
+/* ========= BOX 5 ========== */
+
+#box5 {
+  width: 400px;
+  height: 400px;
+  margin-top: -400px;
+  margin-left: 610px;
+}
+
+#box5 > p {
+  overflow: auto;
+}
+
+
+/* ========= BOX ========== */
 
