@@ -23,7 +23,6 @@ display as unordered lists
 
 var openHoursArray = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
-var columnTotals = [];
 var grandTotal = [];
 var allBranches = [];
 
@@ -70,19 +69,6 @@ function renderToPage(){
 }
 
 
-function masterHourlyTotalSum(){
-
-  for (var i = 0; i < openHoursArray.length; i++){
-    var hourlyCookieSales = 0;
-    for (var j = 0; j < allBranches.length; j++){
-      hourlyCookieSales += allBranches[j].hourlySalesArray[i];
-    }
-
-    columnTotals.unshift(hourlyCookieSales);
-  }
-
-}
-
 function init(){
 
   for (var i = 0; i < allBranches.length; i++){
@@ -90,7 +76,6 @@ function init(){
     allBranches[i].renderStoreToTable();
   }
 
-  masterHourlyTotalSum();
   renderHeader();
   renderFooter();
 }
@@ -147,9 +132,13 @@ function renderFooter() {
   footer.appendChild(footerRow);
   footerRow.appendChild(footerCell);
 
-  for (var j = 0; j < openHoursArray.length; j++){
+  for (var i = 0; i < openHoursArray.length; i++){
+    var hourlyCookieSales = 0;
+    for (var j = 0; j < allBranches.length; j++){
+      hourlyCookieSales += allBranches[j].hourlySalesArray[i];
+    }
     var footerHourlyTotalCell = document.createElement('td');
-    footerHourlyTotalCell.textContent = columnTotals[j];
+    footerHourlyTotalCell.textContent = hourlyCookieSales;
     footerRow.appendChild(footerHourlyTotalCell);
   }
 
@@ -203,7 +192,7 @@ new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-name', 'lima-data');
 
 init();
 
-// ==================== FORMS / EVENTS ==================== //
+// ==================== NEW STORE INPUT FORM ==================== //
 
 var newStoreForm = document.getElementById('newStore');
 
@@ -222,88 +211,8 @@ function addNewStoreForm(newFormEvent){
   newStore.renderToPage();
   newStore.renderStoreToTable();
   document.getElementById('master-table').deleteRow(-1);
-  masterHourlyTotalSum();
   renderFooter();
 
 }
-
-
-
-
-/*
-1: need a target
-2: need an event listener to that target
-2.5 - b : the listener needs a type of event to listen to
-2.5 - a : we need a function
-
-*/
-
-// var firstDiv = document.getElementById('first-div');
-
-// firstDiv.addEventListener('click', function(){
-//   alert('you clicked the box');
-// });
-
-// var secondDiv = document.getElementById('second-div');
-
-// secondDiv.addEventListener('mouseover', handleMouseOverDiv);
-
-// function handleMouseOverDiv(){
-//   secondDiv.style = 'background-color: orange';
-// }
-
-// var thirdDiv = document.getElementById('third-div');
-
-// thirdDiv.addEventListener('dblclick', function(){
-//   thirdDiv.textContent += '99';
-//   if (thirdDiv.className !== 'blue'){
-//     thirdDiv.className = 'blue';
-//   } else {
-//     thirdDiv.className = 'red';
-//   }
-// });
-
-
-// var sectionDiv = document.getElementById('section-div');
-
-// sectionDiv.addEventListener('mouseover', handleChangingColor);
-
-// function handleChangingColor(eventPotato){
-//   console.log(eventPotato);
-// }
-
-
-
-/*
-1. target
-2. listen
-2.5 : type of event
-2.5b : callback function to handle it later;
-
-// forms: step 3 : prevent default page reload of 'submit'
-- requires an event parameter
-
-*/
-
-
-// var myLoginForm = document.getElementById('login-form');
-
-// myLoginForm.addEventListener('submit',function(potatoEvent){
-//   // ABSOLUTELY NECESSARY - ONLY FOR FORMS
-//   potatoEvent.preventDefault();
-//   console.log('yoooooo');
-
-//   //find it
-//   var theEvent = potatoEvent; // potatoEvent === theEvent === the submit event
-//   var theForm = theEvent.target;
-
-//   console.log('the target (theForm)' , theForm);
-
-//   var theInputOfFavFood = theForm.favoriteFood;
-
-//   console.log('fav food ' + theInputOfFavFood);
-
-// });
-
 
 
