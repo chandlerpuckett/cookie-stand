@@ -23,7 +23,7 @@ display as unordered lists
 
 var openHoursArray = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
-var columnTotals = [];
+var grandTotal = [];
 var allBranches = [];
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -50,6 +50,7 @@ function calculateAllCookieSales(){
     var hourlyCookieSales = Math.round(randomizedCookieSale * this.averageNumCookies);
 
     this.hourlySalesArray.push(hourlyCookieSales);
+    grandTotal.push(hourlyCookieSales);
   }
 }
 
@@ -68,71 +69,18 @@ function renderToPage(){
 }
 
 
-function masterHourlyTotalSum(){
-  for (var i = 0; i < openHoursArray.length; i++){
-    var hourlyCookieSales = 0;
-    for (var j = 0; j < allBranches.length; j++){
-      hourlyCookieSales += allBranches[j].hourlySalesArray[i];
-    }
-
-    columnTotals.push(hourlyCookieSales);
-  }
-
-}
-
 function init(){
+
   for (var i = 0; i < allBranches.length; i++){
     allBranches[i].renderToPage();
     allBranches[i].renderStoreToTable();
   }
 
-  masterHourlyTotalSum();
-  renderHeadFootTable();
+  renderHeader();
+  renderFooter();
 }
 
 // ==================== TABLE RENDERS ==================== //
-
-function renderHeadFootTable(){
-  var table = document.getElementById('master-table');
-  var head = document.createElement('thead');
-  table.appendChild(head);
-
-  for (var i = -1; i < openHoursArray.length; i++){
-    var cell = document.createElement('th');
-    cell.textContent = openHoursArray[i];
-    head.appendChild(cell);
-  }
-
-  var dailyTotal = document.createElement('th');
-  dailyTotal.textContent = ('Daily Location Total');
-  head.appendChild(dailyTotal);
-
-  var footer = document.createElement('tfoot');
-  var footerRow = document.createElement('tr');
-  var footerCell = document.createElement('td');
-  footerCell.textContent = ('Total Hourly Sales: ');
-
-  table.appendChild(footer);
-  footer.appendChild(footerRow);
-  footerRow.appendChild(footerCell);
-
-  for (var j = 0; j < openHoursArray.length; j++){
-    var footerHourlyTotalCell = document.createElement('td');
-    footerHourlyTotalCell.textContent = columnTotals[j];
-    footerRow.appendChild(footerHourlyTotalCell);
-  }
-
-  function totalAllSales(){
-    var salesTotal = arrSum(columnTotals);
-    var salesTotalCell = document.createElement('td');
-    salesTotalCell.textContent = salesTotal;
-    footerRow.appendChild(salesTotalCell);
-  }
-
-  totalAllSales();
-
-}
-
 
 function renderStoreToTable(){
   var table = document.getElementById('master-table');
@@ -155,6 +103,56 @@ function renderStoreToTable(){
   tableRow.appendChild(locationTotal);
 
 }
+
+function renderHeader(){
+  var table = document.getElementById('master-table');
+  var head = document.createElement('thead');
+  table.appendChild(head);
+
+  for (var i = -1; i < openHoursArray.length; i++){
+    var cell = document.createElement('th');
+    cell.textContent = openHoursArray[i];
+    head.appendChild(cell);
+  }
+
+  var dailyTotal = document.createElement('th');
+  dailyTotal.textContent = ('Daily Location Total');
+  head.appendChild(dailyTotal);
+}
+
+
+function renderFooter() {
+  var table = document.getElementById('master-table');
+  var footer = document.createElement('tfoot');
+  var footerRow = document.createElement('tr');
+  var footerCell = document.createElement('td');
+  footerCell.textContent = ('Total Hourly Sales: ');
+
+  table.appendChild(footer);
+  footer.appendChild(footerRow);
+  footerRow.appendChild(footerCell);
+
+  for (var i = 0; i < openHoursArray.length; i++){
+    var hourlyCookieSales = 0;
+    for (var j = 0; j < allBranches.length; j++){
+      hourlyCookieSales += allBranches[j].hourlySalesArray[i];
+    }
+    var footerHourlyTotalCell = document.createElement('td');
+    footerHourlyTotalCell.textContent = hourlyCookieSales;
+    footerRow.appendChild(footerHourlyTotalCell);
+  }
+
+  function totalAllSales(){
+    var salesTotal = arrSum(grandTotal);
+    var salesTotalCell = document.createElement('td');
+    salesTotalCell.textContent = salesTotal;
+    footerRow.appendChild(salesTotalCell);
+  }
+
+  totalAllSales();
+
+}
+
 
 // ==================== CONSTRUCTORS ==================== //
 
@@ -193,3 +191,28 @@ new CookieStore('Lima', 2, 16, 4.6, openHoursArray, 'lima-name', 'lima-data');
 // ==================== INVOCATIONS ==================== //
 
 init();
+
+// ==================== NEW STORE INPUT FORM ==================== //
+
+var newStoreForm = document.getElementById('newStore');
+
+newStoreForm.addEventListener('submit', addNewStoreForm);
+
+function addNewStoreForm(newFormEvent){
+  newFormEvent.preventDefault();
+
+  var name = newFormEvent.target.storeName.value;
+  var minNum = newFormEvent.target.minNum.value;
+  var maxNum = newFormEvent.target.maxNum.value;
+  var avgNum = newFormEvent.target.avgNum.value;
+
+  var newStore = new CookieStore(name,minNum,maxNum,avgNum,openHoursArray,name+'-name',name+'-data');
+
+  newStore.renderToPage();
+  newStore.renderStoreToTable();
+  document.getElementById('master-table').deleteRow(-1);
+  renderFooter();
+
+}
+
+

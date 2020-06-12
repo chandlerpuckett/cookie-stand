@@ -16,9 +16,36 @@
     </nav>
     
     <table id="master-table"></table>
-    
-    <script src="js/app.js"></script>
 
+    
+
+    <main>
+
+      <form id="newStore">
+        <fieldset>
+          <legend>Add A New Store</legend>
+          <!-- reference constructor for form input -->
+          <label for = "storeName" >Store Name</label>
+          <input name = "storeName" type = "text">
+         
+          <label for = "minNum" >Minimum Number of Customers</label>
+          <input name = "minNum" type = "text">
+          
+          <label for = "maxNum" >Maximum Number of Customers</label>
+          <input name = "maxNum" type = "text">
+          
+          <label for = "avgNum" >Average Number of Cookies Purchased</label>
+          <input name = "avgNum" type = "text">
+
+          <button>Add Store!</button>
+
+        </fieldset>
+      </form>
+
+    </main>
+
+   
+    <script src="js/app.js"></script>
   </body>
 
 </html>
