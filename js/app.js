@@ -202,9 +202,9 @@ function addNewStoreForm(newFormEvent){
   newFormEvent.preventDefault();
 
   var name = newFormEvent.target.storeName.value;
-  var minNum = newFormEvent.target.minNum.value;
-  var maxNum = newFormEvent.target.maxNum.value;
-  var avgNum = newFormEvent.target.avgNum.value;
+  var minNum = parseFloat(newFormEvent.target.minNum.value);
+  var maxNum = parseFloat(newFormEvent.target.maxNum.value);
+  var avgNum = parseFloat(newFormEvent.target.avgNum.value);
 
   var newStore = new CookieStore(name,minNum,maxNum,avgNum,openHoursArray,name+'-name',name+'-data');
 
