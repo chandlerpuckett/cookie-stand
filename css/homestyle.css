@@ -30,6 +30,11 @@ main > p:nth-child(2) {
   font-weight: 800;
 }
 
+h4 {
+  font-size: 32px;
+  font-weight: bolder;
+}
+
 /* ========= DIV BOXES ========== */
 
 div ul {
@@ -41,7 +46,13 @@ div ul {
 }
 div ul li {
   background-color: hsla(38, 100%, 95%, 0%);
-  
+  color: #7ED1C1;
+  font-size: 26px;
+
+}
+
+#box2 ul li:last-child {
+  font-size: 22px;
 }
 
 div ul li a {
@@ -96,12 +107,22 @@ div ul li a {
 }
 
 #box3 img {
-  width: 75%;
+  width: 100%;
   height: auto;
 }
 
-#box3 > p {
-  overflow: auto;
+#box3 h3 {
+  font-size: 42px;
+  font-weight: 800;
+}
+
+#box3 ul {
+  font-size: 24px;
+  margin-top: -120px;
+}
+
+#box3 ul li {
+  width: 400px;
 }
 
 
@@ -114,8 +135,15 @@ div ul li a {
   margin-left: 170px;
 }
 
+#box4 > p::first-letter {
+  font-size: 75px;
+
+}
+
 #box4 > p {
-  overflow: auto;
+  text-indent: 45px;
+  letter-spacing: -1px;
+  font-size: 26px;
 }
 
 /* ========= BOX 5 ========== */
@@ -128,9 +156,45 @@ div ul li a {
 }
 
 #box5 > p {
-  overflow: auto;
+  font-size: 20px;
+  text-indent: 25px;
+}
+
+#box5 > p::first-letter {
+  font-size: 50px;
+}
+
+#box5 img {
+  width: 50%;
+  height: auto;
+  float: right;
+}
+
+/* ========= BOX 6 ========== */
+
+#box6 {
+  width: 600px;
+  height: 600px;
+  margin-top: 50px;
+  margin-left: -100px;
 }
 
 
-/* ========= BOX ========== */
 
+
+
+
+/* ========= BOX 7 ========== */
+
+#box7 {
+  /* position: absolute; */
+  width: 600px;
+  height: 900px;
+
+}
+
+
+#box7 img {
+  width: 50%;
+
+}
