@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   background-color: #fff2e9;
-  /* outline: dotted red 1px; */
   font-family: Georgia;
 }
 
@@ -69,7 +68,6 @@ div ul li a {
 }
 
 /* ========= BOX 1 ========== */
-
 
 #box1 {
   background-color: hsla(350, 93%, 95%,90%);

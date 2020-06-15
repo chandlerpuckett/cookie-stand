@@ -1,23 +1,5 @@
 'use strict';
 
-console.log('howdy');
-
-/*
-
-5 object literals as array's, one for each store
-
-- Seattle
-- Tokyo
-- Dubai
-- Paris
-- Lima
-
-1. stores min/max hourly customers & average cookies per customer in object properties
-2. uses method of that object to generate random # of customers per hour
-
-
-display as unordered lists
-*/
 
 // ==================== GLOBAL FUNCTIONS / VARIABLES / ARRAYS ==================== //
 
@@ -176,7 +158,6 @@ CookieStore.prototype.renderToPage = renderToPage;
 CookieStore.prototype.renderStoreToTable = renderStoreToTable;
 
 // ==================== INPUT DATA ==================== //
-
 
 new CookieStore('Seattle', 23, 65, 6.3, openHoursArray, 'seattle-name', 'seattle-data');
 
