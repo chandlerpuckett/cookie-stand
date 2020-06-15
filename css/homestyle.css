@@ -1,11 +1,15 @@
 * {
   box-sizing: border-box;
-  background-color: #fdfaf7;
+  background-color: #fff2e9;
   /* outline: dotted red 1px; */
-  font-family: Quicksand;
+  font-family: Georgia;
 }
 
 /* ========= MAIN ========== */
+
+.title {
+  font-family: Quicksand;
+}
 
 main {
   width: 750px;
@@ -31,6 +35,7 @@ main > p:nth-child(2) {
 }
 
 h4 {
+  font-family: Quicksand;
   font-size: 32px;
   font-weight: bolder;
 }
@@ -57,7 +62,7 @@ div ul li {
 
 div ul li a {
   text-decoration: none;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
   background-color: hsla(38, 100%, 95%, 0%);
   color: #7ED1C1;
@@ -67,7 +72,7 @@ div ul li a {
 
 
 #box1 {
-  background-color: hsla(350, 93%, 95%,40%);
+  background-color: hsla(350, 93%, 95%,90%);
   width: 600px;
   height: 600px;
   position: static;
@@ -104,6 +109,9 @@ div ul li a {
   height: 400px;
   margin-top: -100px;
   margin-left: -275px;
+  background-color: #FFE4D3;
+  padding: 20px;
+
 }
 
 #box3 img {
@@ -112,13 +120,17 @@ div ul li a {
 }
 
 #box3 h3 {
-  font-size: 42px;
+  font-family: Quicksand;
+  font-size: 40px;
   font-weight: 800;
+  background-color: #FFE4D3;
 }
 
 #box3 ul {
   font-size: 24px;
   margin-top: -120px;
+  font-weight: 800;
+  margin-left: -30px;
 }
 
 #box3 ul li {
@@ -133,6 +145,8 @@ div ul li a {
   height: 400px;
   margin-top: -400px;
   margin-left: 170px;
+  padding: 20px;
+  background-color:rgba(226,251,246);
 }
 
 #box4 > p::first-letter {
@@ -144,6 +158,8 @@ div ul li a {
   text-indent: 45px;
   letter-spacing: -1px;
   font-size: 26px;
+  background-color:rgba(226,251,246);
+
 }
 
 /* ========= BOX 5 ========== */
@@ -153,11 +169,15 @@ div ul li a {
   height: 400px;
   margin-top: -400px;
   margin-left: 610px;
+  background-color: #FFE4D3;
+  padding: 20px;
+
 }
 
 #box5 > p {
   font-size: 20px;
   text-indent: 25px;
+  background-color: #FFE4D3;
 }
 
 #box5 > p::first-letter {
@@ -177,24 +197,52 @@ div ul li a {
   height: 600px;
   margin-top: 50px;
   margin-left: -100px;
+  padding: 20px;
+  background-color: rgba(249,150,164,25%) ;
 }
 
-
-
-
-
+#box6 > h4 {
+  background-color: rgba(249,150,164,5%) ;
+}
 
 /* ========= BOX 7 ========== */
 
 #box7 {
-  /* position: absolute; */
   width: 600px;
   height: 900px;
+  background-color: #FFF0E6;
+  padding: 20px;
 
 }
 
-
 #box7 img {
   width: 50%;
+  float: left;
+  background-color: ;
+  padding: 20px;
 
+}
+
+#box7 h4 {
+  float: left;
+  width: auto;
+  vertical-align: top;
+  font-family: Quicksand;
+  font-size: 56px;
+  letter-spacing: -2px;
+  color: #364643;
+  background-color: rgba(254,210,216,50%) ;
+  margin-left: -100px;
+  padding: 20px;
+}
+
+#box7 > p {
+  text-align: right;
+  font-family: Georgia;
+  font-size: 32px;
+  background-color: #FFF0E6;
+}
+
+#box7 p::first-letter {
+  font-size: 50px;
 }
