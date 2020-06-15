@@ -8,6 +8,8 @@ h1{
   font-size: 52px;
   font-weight: bolder;
   padding: 20px;
+  position: relative;
+
 }
 
 nav > li > a {
@@ -20,6 +22,13 @@ nav > li {
   list-style: none;
   padding: 20px;
   font-size: 20px;
+  text-transform: uppercase;
+  position: relative;
+  top: auto;
+  margin-top: -50px;
+  align-self: center;
+  float: right;
+
 }
 
 img {
